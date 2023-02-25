@@ -350,6 +350,7 @@ module.exports = {
       "7xl": ["7.2rem", { lineHeight: "1" }],
       "8xl": ["9.6rem", { lineHeight: "1" }],
       "9xl": ["12.8rem", { lineHeight: "1" }],
+      8: ["0.7rem"],
       10: ["1rem"],
       11: ["1.1rem"],
       12: ["1.2rem"],
@@ -907,5 +908,5 @@ module.exports = {
     },
   },
 
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

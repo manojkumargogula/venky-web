@@ -16,12 +16,19 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/runtime": "^7.17.9",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.10",
+    "@mui/styled-engine": "^5.11.9",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "dotenv-webpack": "^7.1.0",
     "postcss-loader": "^7.0.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.8.1",
-    "style-loader": "^3.3.1"
+    "react-swiper": "^0.1.5",
+    "style-loader": "^3.3.1",
+    "swiper": "^9.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",

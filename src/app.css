@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	font-size: 12px;
+	background-color: #161929;
+	color: var(--color-primaryText);
+}
