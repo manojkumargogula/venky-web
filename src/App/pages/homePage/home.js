@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Header from "../components/header";
-import Swiper from "../components/swiper/Swiper";
-import SearchBox from "../components/searchBox";
-import Card from "../components/Card";
-
+import Header from "../../components/header";
+import Swiper from "../../components/swiper/Swiper";
+import SearchBox from "../../components/searchBox";
+import Card from "../../components/Card";
+import Footer from "../../components/Footer";
+import { Outlet } from "react-router-dom";
 const HomePage = () => {
   const images = [
     {
@@ -22,15 +23,20 @@ const HomePage = () => {
   return (
     <div className="bg-background-default">
       <Header />
+      <Outlet />
       <div className="mt-32">
         <Swiper images={images} />
       </div>
       <SearchBox />
-      <div className="grid grid-cols-4 mx-auto w-[90vw]">
-      {new Array(10).fill(0).map(() => {
-       return <Card />;
-      })}
+      <div className="text-primaryText text-14 font-700 flex justify-center ">
+        Trending Machines
       </div>
+      <div className="grid sm:grid-cols-1 xl:grid-cols-4 mx-auto w-[90vw]">
+        {new Array(10).fill(0).map(() => {
+          return <Card />;
+        })}
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -26,20 +26,21 @@ const SwiperCarousel = (props) => {
         loop={true}
         speed={800}
         autoplay={{
-          delay: 2500,
+          delay: 1500,
           disableOnInteraction: false,
         }}
+        pagination={true}
         effect={"cards"}
         modules={[EffectCards, Autoplay]}
         cardsEffect={{ rotate: false, perSlideOffset: 10 }}
-        className="w-[80vw] h-[38vw] rounded-2xl"
+        className="xl:w-[80vw] xl:h-[38vw] rounded-2xl"
       >
         {images.map((photo, index) => (
           <SwiperSlide key={index}>
             <img
               src={photo.url}
               alt={photo.alternativeText}
-              className={"w-screen object-cover"}
+              className={"w-full h-full aspect-square object-cover"}
             />
           </SwiperSlide>
         ))}
