@@ -5,9 +5,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { EffectCards, Autoplay } from "swiper";
+import vehicles from "../../data/data";
 
 const SwiperCarousel = (props) => {
-  const { images } = props;
   const [swiperInstance, setSwiperInstance] = useState(null);
 
   const moveSlideForward = () => {
@@ -35,13 +35,16 @@ const SwiperCarousel = (props) => {
         cardsEffect={{ rotate: false, perSlideOffset: 10 }}
         className="xl:w-[80vw] xl:h-[38vw] rounded-2xl"
       >
-        {images.map((photo, index) => (
+        {vehicles.map((vehicle, index) => (
           <SwiperSlide key={index}>
             <img
-              src={photo.url}
-              alt={photo.alternativeText}
-              className={"w-full h-full aspect-square object-cover"}
+              src={vehicle?.img}
+              alt={vehicle?.alternativeText}
+              className={"w-full h-full aspect-video object-cover"}
             />
+            <span className="absolute bottom-[5%] left-[5%] text-28 text-primaryText">
+              {vehicle.name}
+            </span>
           </SwiperSlide>
         ))}
       </Swiper>

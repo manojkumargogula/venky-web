@@ -5,8 +5,9 @@ const Dotenv = require("dotenv-webpack");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.join(__dirname, "build"),
+    filename: "js/main.[contenthash].js",
+    chunkFilename: "js/[name].[contenthash].js",
     publicPath: "/",
   },
   resolve: {
@@ -27,10 +28,22 @@ module.exports = {
           loader: "html-loader",
         },
       },
-    	{
-				test: /\.(css)$/,
-				use: ["style-loader", "css-loader", "postcss-loader"]
-			},
+      {
+        test: /\.(css)$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images/",
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -44,10 +57,10 @@ module.exports = {
     new Dotenv(),
   ],
   devServer: {
-    static: path.join(__dirname, "dist"),
-    compress: true,
-    port: 3005,
+    port: 3000,
     historyApiFallback: true,
-    open: true,
+    client: {
+      overlay: true,
+    },
   },
 };

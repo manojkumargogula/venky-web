@@ -5,35 +5,33 @@ import SearchBox from "../../components/searchBox";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import { Outlet } from "react-router-dom";
+import vehicles from "../../data/data";
+
 const HomePage = () => {
-  const images = [
-    {
-      url: "https://bd.gaadicdn.com/processedimages/oben/oben-electric-bike/640X309/oben-electric-bike62306eca07dd7.jpg",
-      alternativeText: "Sweden Photo One",
-    },
-    {
-      url: "https://bd.gaadicdn.com/processedimages/oben/oben-electric-bike/640X309/oben-electric-bike62306eca07dd7.jpg",
-      alternativeText: "Sweden Photo Two",
-    },
-    {
-      url: "https://bd.gaadicdn.com/processedimages/oben/oben-electric-bike/640X309/oben-electric-bike62306eca07dd7.jpg",
-      alternativeText: "Sweden Photo Three",
-    },
-  ];
+
+  const [sortField, setSortField] = useState(null);
+
+  const [value, setValue] = useState();
+
   return (
     <div className="bg-background-default">
       <Header />
       <Outlet />
       <div className="mt-32">
-        <Swiper images={images} />
+        <Swiper />
       </div>
-      <SearchBox />
+      <SearchBox
+        setSortField={setSortField}
+        setValue={setValue}
+        value={value}
+        sortField={sortField}
+      />
       <div className="text-primaryText text-14 font-700 flex justify-center ">
         Trending Machines
       </div>
       <div className="grid sm:grid-cols-1 xl:grid-cols-4 mx-auto w-[90vw]">
-        {new Array(10).fill(0).map(() => {
-          return <Card />;
+        {vehicles.map((vehicle) => {
+          return <Card vehicle={vehicle} />;
         })}
       </div>
       <Footer />
