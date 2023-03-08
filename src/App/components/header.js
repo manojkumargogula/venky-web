@@ -4,9 +4,9 @@ const Header = () => {
     <header>
       <nav className=" bg-background-default text-primaryText border-gray-200 px-4  text-12 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a href="https://flowbite.com" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
-              src="https://www.pngfind.com/pngs/m/297-2974385_kawasaki-png-pluspng-kawasaki-ninja-bike-png-transparent.png"
+              src="https://seeklogo.com/images/L/line-art-car-logo-99DBB62CB3-seeklogo.com.png"
               className="mr-3 w-36"
               alt="Flowbite Logo"
             />

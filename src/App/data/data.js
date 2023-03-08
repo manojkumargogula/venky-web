@@ -86,7 +86,7 @@ const vehicles = [
     BootSpace: 350,
   },
   {
-    name: " Mahindra ezo plus",
+    name: "Mahindra ezo plus",
     img: MadhindraEzo,
     Cost: 11,
     MaximumPower: 40,
@@ -99,4 +99,21 @@ const vehicles = [
     BootSpace: 135,
   },
 ];
+
+let keys = [];
+let idealData = vehicles[0];
+keys = Object.keys(vehicles[0]);
+
+export const data = () => {
+  console.log(keys);
+  vehicles.map((vehicle) => {
+    keys.map((key) => {
+      if (idealData[key] < vehicle[key]) {
+        idealData[key] = vehicle[key];
+      }
+    });
+  });
+  return idealData;
+};
+
 export default vehicles;

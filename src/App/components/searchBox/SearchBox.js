@@ -32,8 +32,6 @@ const SearchBox = (props) => {
         <div className="flex flex-row items-center my-8">
           <div className="text-14 text-bgSidebar mr-6">Filter:</div>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
             value={sortField}
             // label="Filter"
             onChange={handleChange}
@@ -43,7 +41,14 @@ const SearchBox = (props) => {
               return <MenuItem value={item}>{item}</MenuItem>;
             })}
           </Select>
-          <Slider aria-label="Volume" value={value} onChange={handleChanges} />
+          <Slider
+            aria-label="Volume"
+            value={value}
+            defaultValue={0}
+            min={10}
+            max={100}
+            onChange={handleChanges}
+          />
         </div>
       </div>
     </div>
