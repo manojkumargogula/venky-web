@@ -4066,6 +4066,11 @@ react-dom@^18.0.0:
     loose-envify "^1.1.0"
     scheduler "^0.21.0"
 
+react-floating-whatsapp-button@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-floating-whatsapp-button/-/react-floating-whatsapp-button-1.1.0.tgz#161336eac294821e0a80c09c024a6d79404ff5e0"
+  integrity sha512-eHm21+fQCG99dy/mnmrhgpCOkB5kr5zVcUCWzSv8Rp7quEK0mRVUkV9WHMWJsCCCiCHNeVeuDJQuV39IRg7Eaw==
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"

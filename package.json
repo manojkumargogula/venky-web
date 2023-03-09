@@ -29,6 +29,7 @@
     "postcss-loader": "^7.0.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-floating-whatsapp-button": "^1.1.0",
     "react-router-dom": "^6.8.1",
     "react-swiper": "^0.1.5",
     "style-loader": "^3.3.1",
