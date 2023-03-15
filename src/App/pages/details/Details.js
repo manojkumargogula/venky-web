@@ -11,26 +11,31 @@ const DetailsScreen = () => {
   });
 
   return (
-    <div className="w-full">
-      <div className="w-full h-[60vh]">
-        <img src={state.img} alt={"manoj"} className={"w-full h-full object-contain "} />
+    <div className="w-full flex flex-col items-center ">
+      <div className="text-18 text-primaryText font-bold">{state.name}</div>
+      <div className=" flex flex-col w-full h-[60vh] my-28 rounded-full">
+        <img
+          src={state.img}
+          alt={"manoj"}
+          className={"w-full h-full object-contain "}
+        />
       </div>
 
-      <div className="text-primaryText text-12 w-[80vw] mx-auto mt-32">
-        <div>Vehicle Name:{state.name}</div>
-        <div>Cost:{state.cost}</div>
-        <div>MaximumPower:{state.MaximumPower}</div>
-        <div>Chargingtime:{state.Chargingtime}</div>
-        <div>BatteryCapacity:{state.BatteryCapacity}</div>
-        <div>MaximumTorque:{state.MaximumTorque}</div>
-        <div>Weight:{state.Weight}</div>
+      <ul className="text-primaryText text-12 w-[80vw] mx-auto mt-32 list-disc">
+        <li>Vehicle Name:{state.name}</li>
+        <li>Cost:{state.Cost} lakhs</li>
+        <li>MaximumPower:{state.MaximumPower} bhp</li>
+        <li>Chargingtime:{state.Chargingtime} min</li>
+        <li>BatteryCapacity:{state.BatteryCapacity} KWh</li>
+        <li>MaximumTorque:{state.MaximumTorque} nm/rpm</li>
+        <li>Weight:{state.Weight} kgs</li>
 
-        <div>MileageFullcharge:{state.MileageFullcharge}</div>
+        <li>MileageFullcharge:{state.MileageFullcharge} km</li>
 
-        <div>MaximumSpeed:{state.MaximumSpeed}</div>
+        <li>MaximumSpeed:{state.MaximumSpeed} km/hr</li>
 
-        <div>BootSpace:{state.BootSpace}</div>
-      </div>
+        <li>BootSpace:{state.BootSpace} Litres</li>
+      </ul>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { EffectCards, Autoplay } from "swiper";
-import vehicles from "../../data/data";
+import { vehicles } from "../../data/data";
 
 const SwiperCarousel = (props) => {
   const [swiperInstance, setSwiperInstance] = useState(null);

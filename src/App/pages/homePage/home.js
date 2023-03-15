@@ -5,14 +5,14 @@ import SearchBox from "../../components/searchBox";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import { Outlet, useNavigate } from "react-router-dom";
-import vehicles from "../../data/data";
+import { vehicles } from "../../data/data";
 import { data } from "../../data/data";
 import { FloatingWhatsApp } from "react-floating-whatsapp-button";
 import "react-floating-whatsapp-button/dist/index.css";
 const HomePage = () => {
   const [sortField, setSortField] = useState(null);
   const IdealData = data();
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   const navigate = useNavigate();
   const renderCardsContent = () => {
@@ -77,7 +77,12 @@ const HomePage = () => {
       />
       {renderCardsContent()}
       <div>
-        <FloatingWhatsApp phone={"9391065861"} zIndex={999} size={50} showOnIE={false}/>
+        <FloatingWhatsApp
+          phone={"7032930354"}
+          zIndex={999}
+          size={50}
+          showOnIE={false}
+        />
       </div>
       <Footer />
     </div>

@@ -3,6 +3,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import Slider from "@mui/material/Slider";
+import { Button } from "@mui/material";
 const SearchBox = (props) => {
   const { setValue, setSortField, sortField, value } = props;
   const handleChanges = (event, newValue) => {
@@ -10,6 +11,9 @@ const SearchBox = (props) => {
   };
   const handleChange = (event) => {
     setSortField(event.target.value);
+  };
+  const handleReset = () => {
+    setSortField(null);
   };
   const sortArray = [
     "Cost",
@@ -41,14 +45,19 @@ const SearchBox = (props) => {
               return <MenuItem value={item}>{item}</MenuItem>;
             })}
           </Select>
-          <Slider
-            aria-label="Volume"
-            value={value}
-            defaultValue={0}
-            min={10}
-            max={100}
-            onChange={handleChanges}
-          />
+          {sortField && (
+            <Slider
+              aria-label="Volume"
+              value={value}
+              defaultValue={0}
+              min={10}
+              max={100}
+              onChange={handleChanges}
+            />
+          )}
+        </div>
+        <div className="flex justify-center">
+          <Button onClick={handleReset}>Show All</Button>
         </div>
       </div>
     </div>

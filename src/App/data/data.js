@@ -6,7 +6,7 @@ import Stromr3 from "../asserts/Stromr3.jpg";
 import Tatanexon from "../asserts/Tatanexon.jpg";
 import TataTigor from "../asserts/Tatatigor.jpg";
 
-const vehicles = [
+export const vehicles = [
   {
     name: "Hyundai Kona",
     img: Hundai,
@@ -26,11 +26,11 @@ const vehicles = [
     Cost: 13,
     MaximumPower: 73.75,
     Chargingtime: 120,
-    Batterycapacity: 26,
+    BatteryCapacity: 26,
     MaximumTorque: 73.75,
     Weight: 1235,
-    Mileagefullcharge: 306,
-    Maximumspeed: 120,
+    MileageFullcharge: 306,
+    MaximumSpeed: 120,
     BootSpace: 316,
   },
   {
@@ -39,7 +39,7 @@ const vehicles = [
     img: Mgzs,
     MaximumPower: 140.8,
     Chargingtime: 360,
-    Batterycapacity: 44.5,
+    BatteryCapacity: 44.5,
     MaximumTorque: 350,
     Weight: 1609,
     MileageFullcharge: 340,
@@ -52,11 +52,11 @@ const vehicles = [
     Cost: 4.5,
     MaximumPower: 20.11,
     Chargingtime: 180,
-    Batterycapacity: 6,
+    BatteryCapacity: 6,
     MaximumTorque: 90,
     Weight: 550,
     MileageFullcharge: 200,
-    Maximumspeed: 80,
+    MaximumSpeed: 80,
     BootSpace: 300,
   },
   {
@@ -69,7 +69,7 @@ const vehicles = [
     MaximumTorque: 91,
     Weight: 1704,
     MileageFullcharge: 140,
-    Maximumspeed: 86,
+    MaximumSpeed: 86,
     BootSpace: 510,
   },
   {
@@ -82,7 +82,7 @@ const vehicles = [
     MaximumTorque: 245,
     Weight: 1400,
     Mileagefullcharge: 312,
-    Maximumspeed: 120,
+    MaximumSpeed: 120,
     BootSpace: 350,
   },
   {
@@ -95,17 +95,27 @@ const vehicles = [
     MaximumTorque: 91,
     Weight: 1310,
     MileageFullcharge: 99.9,
-    Maximumspeed: 80,
+    MaximumSpeed: 80,
     BootSpace: 135,
   },
 ];
-
 let keys = [];
-let idealData = vehicles[0];
+let idealData = {
+  name: null,
+  img: null,
+  Cost: null,
+  MaximumPower: null,
+  Chargingtime: null,
+  BatteryCapacity: null,
+  MaximumTorque: null,
+  Weight: null,
+  Mileagefullcharge: null,
+  MaximumSpeed: null,
+  BootSpace: null,
+};
 keys = Object.keys(vehicles[0]);
 
 export const data = () => {
-  console.log(keys);
   vehicles.map((vehicle) => {
     keys.map((key) => {
       if (idealData[key] < vehicle[key]) {
@@ -115,5 +125,3 @@ export const data = () => {
   });
   return idealData;
 };
-
-export default vehicles;
