@@ -6,9 +6,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { EffectCards, Autoplay } from "swiper";
 import { vehicles } from "../../data/data";
-
+import { useNavigate } from "react-router-dom";
 const SwiperCarousel = (props) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
+  const navigate = useNavigate();
 
   const moveSlideForward = () => {
     swiperInstance.slideNext();
@@ -36,13 +37,13 @@ const SwiperCarousel = (props) => {
         className="xl:w-[80vw] xl:h-[38vw] rounded-2xl"
       >
         {vehicles.map((vehicle, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} onClick={() => navigate("/details", { state: vehicle })}>
             <img
               src={vehicle?.img}
               alt={vehicle?.alternativeText}
               className={"w-full h-full aspect-video object-cover"}
             />
-            <span className="absolute bottom-[5%] left-[5%] text-28 text-primaryText">
+            <span className="absolute bottom-[5%] left-[5%] text-sm xl-text-28 text-primaryText">
               {vehicle.name}
             </span>
           </SwiperSlide>
