@@ -41,7 +41,7 @@ const SwiperCarousel = (props) => {
             <img
               src={vehicle?.img}
               alt={vehicle?.alternativeText}
-              className={"w-full h-full aspect-video object-cover"}
+              className={"w-full h-full aspect-video object-fill"}
             />
             <span className="absolute bottom-[5%] left-[5%] text-sm xl-text-28 text-primaryText">
               {vehicle.name}

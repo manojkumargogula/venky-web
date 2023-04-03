@@ -11,10 +11,10 @@ const routes = [
     path: "/",
     element: <HomePage />,
   },
-  { path: "details", element: <DetailsScreen /> },
-  { path: "contactUs", element: <ContactUs /> },
-  { path: "analysis", element: <Analysis /> },
-  { path: "team", element: <Team /> },
+  { path: "details", element: <DetailsScreen />, errorElement: <HomePage /> },
+  { path: "contactus", element: <ContactUs />, errorElement: <HomePage /> },
+  { path: "analysis", element: <Analysis />, errorElement: <HomePage /> },
+  { path: "team", element: <Team />, errorElement: <HomePage /> },
 ];
 const router = createBrowserRouter(routes);
 
