@@ -13,13 +13,19 @@ const HomePage = () => {
   const [sortField, setSortField] = useState(null);
   const IdealData = data();
   const [value, setValue] = useState(1);
+  const [filterData, setFilterData] = useState({});
 
   const navigate = useNavigate();
   const renderCardsContent = () => {
-    if (sortField && value) {
+    if (filterData) {
+      const filterValues = Object.keys(filterData);
       const result = vehicles.filter((vehicle) => {
-        const vehiclepro = (vehicle[sortField] / IdealData[sortField]) * 100;
-        if (value >= vehiclepro) return vehicle;
+        let showVehicle = true;
+        filterValues.map((item) => {
+          const vehiclepro = (vehicle[item] / IdealData[item]) * 100;
+          if (filterData[item] <= vehiclepro) showVehicle = false;
+        });
+        if (showVehicle) return vehicle;
       });
       return (
         <>
@@ -74,6 +80,8 @@ const HomePage = () => {
         setValue={setValue}
         value={value}
         sortField={sortField}
+        filterData={filterData}
+        setFilterData={setFilterData}
       />
       {renderCardsContent()}
       <div>

@@ -5,17 +5,16 @@ import InputLabel from "@mui/material/InputLabel";
 import Slider from "@mui/material/Slider";
 import { Button } from "@mui/material";
 const SearchBox = (props) => {
-  const { setValue, setSortField, sortField, value } = props;
-  const handleChanges = (event, newValue) => {
-    setValue(newValue);
+  const { setSortField, value, setFilterData, filterData } = props;
+  const handleChanges = (event, newValue, item) => {
+    let array = { ...filterData };
+
+    array[item] = newValue;
+    setFilterData({ ...array });
   };
-  const handleChange = (event) => {
-    setSortField(event.target.value);
-  };
-  const handleReset = () => {
-    setSortField(null);
-  };
-  const sortArray = [
+  const [filterValue, setFilterValue] = useState("");
+  const [filters, setFilters] = useState([]);
+  const [sortArray, setSortArray] = useState([
     "Cost",
     "MaximumPower",
     "Chargingtime",
@@ -25,36 +24,78 @@ const SearchBox = (props) => {
     "MileageFullcharge",
     "MaximumSpeed",
     "BootSpace",
-  ];
+  ]);
+  const handleChange = (event) => {
+    setFilterValue(event.target.value);
+  };
+
+  const handleReset = () => {
+    setSortField(null);
+    setFilterData({});
+  };
+
+  const handleFIltersAdd = () => {
+    setFilters([...filters, filterValue]);
+    let index = sortArray.indexOf(filterValue);
+    let array = [...sortArray];
+    array.splice(index, 1);
+    setSortArray([...array]);
+  };
   return (
-    <div className="w-[60vw] h-[30vh] text-scrollbar-thumb flex items-center justify-center bg-tooltipBackground mx-auto my-32 rounded-xl">
+    <div className="w-[60vw]  text-scrollbar-thumb flex items-center justify-center bg-tooltipBackground mx-auto my-32 rounded-xl">
       <div>
         <p className="text-18 text-center font-700 text-linkText">
           Wanna Find Electric Vehicle?
         </p>
         {/* <InputLabel id="demo-simple-select-label">Filter</InputLabel> */}
         <div className="flex flex-row items-center my-8">
-          <div className="text-14 text-bgSidebar mr-6">Filter:</div>
           <Select
-            value={sortField}
-            // label="Filter"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={filterValue}
+            label="add Filters"
             onChange={handleChange}
-            className="mr-20 w-[20vw] h-[5vh]"
+            className="w-[10vw] h-[6vh] mr-6"
           >
             {sortArray.map((item) => {
               return <MenuItem value={item}>{item}</MenuItem>;
             })}
           </Select>
-          {sortField && (
-            <Slider
-              aria-label="Volume"
-              value={value}
-              defaultValue={0}
-              min={10}
-              max={100}
-              onChange={handleChanges}
-            />
-          )}
+          <button
+            className="text-bgSidebar mr-20 border-border border-1 rounded-8 p-4 text-12"
+            onClick={handleFIltersAdd}
+          >
+            Add Filter
+          </button>
+
+          <div className="flex flex-col">
+            {filters.map((item) => {
+              return (
+                <div className=" w-[20vw] flex flex-row">
+                  <div
+                    className="w-[10vw] h-[3vh] border-border border-1 rounded-8 flex justify-center my-3"
+                    // onClick={() => handleChange(item)}
+                  >
+                    {item}
+                  </div>
+                  <Slider
+                    aria-label="Volume"
+                    value={filterData[item]}
+                    defaultValue={0}
+                    min={10}
+                    max={100}
+                    onChange={(event, newValue) =>
+                      handleChanges(event, newValue, item)
+                    }
+                    className="ml-10"
+                  />
+                </div>
+              );
+            })}
+          </div>
+          {/* {sortField && (
+           
+          )} */}
         </div>
         <div className="flex justify-center">
           <Button onClick={handleReset}>Show All</Button>
